@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Valentine's Day Greeting</title>
+  <title>Happy Valentine's Day</title>
   <style>
     /* Reset */
     * {
@@ -27,7 +27,7 @@
       background: white;
       border-radius: 25px;
       padding: 40px;
-      max-width: 400px;
+      max-width: 450px;
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
       text-align: center;
       position: relative;
@@ -54,14 +54,8 @@
     }
 
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* Heart Beat */
@@ -72,27 +66,24 @@
     }
 
     @keyframes heartbeat {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.3);
-      }
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
     }
 
     /* ปุ่ม */
     button {
       background: linear-gradient(135deg, #ff758c, #ff7eb3);
       color: white;
-      padding: 15px 20px;
+      padding: 12px 18px;
       border: none;
       border-radius: 25px;
       cursor: pointer;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       transition: all 0.3s ease;
       box-shadow: 0 8px 20px rgba(255, 122, 136, 0.4);
       position: relative;
       overflow: hidden;
+      margin-top: 20px;
     }
 
     button:hover {
@@ -111,36 +102,21 @@
 
     /* หัวใจเด้งออกจากปุ่ม */
     @keyframes popUp {
-      0% {
-        transform: scale(0);
-        opacity: 0;
-      }
-      30% {
-        transform: scale(1.2);
-        opacity: 1;
-      }
-      100% {
-        transform: scale(1);
-      }
+      0% { transform: scale(0); opacity: 0; }
+      30% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); }
     }
 
-    /* ลอยขึ้นอย่างนุ่มนวล */
+    /* ลอยขึ้น */
     @keyframes floatUp {
-      0% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-200px);
-        opacity: 0;
-      }
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-180px); opacity: 0; }
     }
-
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>Valentine's Day <span class="heart">&#10084;</span></h1>
+    <h1>Happy Valentine's Day <span class="heart">&#10084;</span></h1>
     
     <button onclick="goNext()">ไปต่อ</button>
   </div>
@@ -151,7 +127,7 @@
       let rect = button.getBoundingClientRect();
       
       // สร้างหัวใจเด้งออกมาจากปุ่ม
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 6; i++) {
         let heart = document.createElement("div");
         heart.innerHTML = "❤️";
         heart.classList.add("floating-heart");
@@ -160,16 +136,14 @@
         // ตำแหน่งออกมาจากปุ่ม
         heart.style.left = `${rect.left + rect.width / 2 + (Math.random() * 40 - 20)}px`;
         heart.style.top = `${rect.top}px`;
-        heart.style.fontSize = `${Math.random() * 20 + 15}px`;
-        heart.style.animation = `popUp 0.4s ease, floatUp ${Math.random() * 2 + 1.5}s ease-in-out forwards`;
+        heart.style.fontSize = `${Math.random() * 25 + 10}px`;
+        heart.style.animation = `popUp 0.3s ease, floatUp ${Math.random() * 2 + 1.5}s ease-in-out forwards`;
 
-        setTimeout(() => {
-          heart.remove();
-        }, 2500);
+        setTimeout(() => { heart.remove(); }, 2500);
       }
 
       // หัวใจลอยทั่วหน้าจอ
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 12; i++) {
         let heart = document.createElement("div");
         heart.innerHTML = "❤️";
         heart.classList.add("floating-heart");
@@ -180,18 +154,16 @@
         let y = Math.random() * window.innerHeight;
         heart.style.left = `${x}px`;
         heart.style.top = `${y}px`;
-        heart.style.fontSize = `${Math.random() * 25 + 15}px`;
+        heart.style.fontSize = `${Math.random() * 20 + 15}px`;
         heart.style.animation = `floatUp ${Math.random() * 3 + 1.5}s ease-in-out forwards`;
 
-        setTimeout(() => {
-          heart.remove();
-        }, 3000);
+        setTimeout(() => { heart.remove(); }, 3000);
       }
 
       // ดีเลย์เปลี่ยนหน้าให้เห็นหัวใจก่อน
       setTimeout(() => {
         window.location.href = 'หน้า1.html';
-      }, 1500);
+      }, 1600);
     }
   </script>
 </body>
